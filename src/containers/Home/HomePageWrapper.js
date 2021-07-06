@@ -71,6 +71,13 @@ const HomePageWrapper = styled.div`
           color: ${props => props.theme.altWhite};
           text-align: center;
         }
+        @media only screen and (max-width: 1212px) {
+          position: inherit;
+          bottom: 0;
+        }
+        @media only screen and (max-width: 500px) {
+          display: none;
+        }
       }
     }
     background-color: ${props => props.theme.productsSectionBg};
@@ -131,6 +138,9 @@ export const CarouselItemWrapper = styled.div`
           right: 20%;
           transform: translateY(-50%);
         }
+      }
+      @media only screen and (max-width: 768px) {
+        display: none;
       }
     }
   }

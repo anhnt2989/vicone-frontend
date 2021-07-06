@@ -7,9 +7,12 @@ const Wrapper = styled.div`
     border-radius: 10px 8px;
     max-width: 180px;
     max-height: 170px;
+    margin: 0 auto;
     .img {
       width: 180px;
       height: 170px;
+      min-width: 100%;
+      min-height: 100%;
       border-radius: 10px 8px;
     }
   }

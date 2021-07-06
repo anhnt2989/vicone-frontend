@@ -19,10 +19,10 @@ import Wrapper from './Wrapper';
 function ViconeFooter(props) {
   return (
     <Wrapper id="contact">
-      <footer className="upper" style={{ background: `url(${FooterBg}) center center no-repeat` }}>
+      <footer className="upper" style={{ background: `url(${FooterBg}) center center` }}>
         <Container>
           <Row>
-            <Col xs={6} lg={4} className="mt-3">
+            <Col xs={4} className="mt-3">
               <div className="upper-footer__fragment">
                 <h5 className="title">
                   Liên hệ với chúng tôi
@@ -55,7 +55,7 @@ function ViconeFooter(props) {
                 </div>
               </div>
             </Col>
-            <Col xs={6} lg={4} className="mt-3">
+            <Col xs={4} className="mt-3">
               <div className="upper-footer__fragment">
                 <h5 className="title">
                   Menu
@@ -84,7 +84,7 @@ function ViconeFooter(props) {
                 </div>
               </div>
             </Col>
-            <Col xs={6} lg={4} className="mt-3">
+            <Col xs={4} className="mt-3">
               <div className="upper-footer__fragment">
                 <h5 className="title">
                   Hệ sinh thái One Group
@@ -126,7 +126,7 @@ function ViconeFooter(props) {
           <Row>
             <Col xs={6} lg={8} className="d-flex align-items-center">
               <img width="81" height="49" className="img" src={LogoUrl} alt="Vicone Logo" />
-              <span className="footer-title">
+              <span className="footer-title" title="CÔNG TY CỔ PHẦN ĐẦU TƯ THƯƠNG MẠI VÀ DỊCH VỤ VICONE">
                 CÔNG TY CỔ PHẦN ĐẦU TƯ THƯƠNG MẠI VÀ DỊCH VỤ VICONE
               </span>
             </Col>

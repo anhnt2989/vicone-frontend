@@ -39,6 +39,10 @@ const Wrapper = styled.div`
       font-weight: bold;
       font-size: 24px;
       line-height: 28px;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
       color: ${props => props.theme.mainWhite};
     }
   }

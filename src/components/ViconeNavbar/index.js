@@ -66,7 +66,7 @@ function ViconeNavbar(props) {
 
   return (
     <NavbarWrapper>
-      <Navbar expand="md">
+      <Navbar expand="lg" light>
         <NavbarBrand href="/">
           <img className="img" src={LogoUrl} alt="Vicone Logo" />
         </NavbarBrand>

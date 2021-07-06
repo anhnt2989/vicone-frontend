@@ -14,6 +14,7 @@ const Wrapper = styled.div`
   .info-block {
     padding: 1rem 0.5rem;
     min-height: 180px;
+    max-height: 180px;
     .full-name {
       color: ${props => props.theme.navLinkColor};
       font-weight: 500;

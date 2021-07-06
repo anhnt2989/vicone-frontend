@@ -60,7 +60,7 @@ function HomePage(props) {
             </Col>
             {
               categories.map((category, index) => 
-                <Col xs={6} md={4} lg={2} key={`category--${index}`} className="mt-3">
+                <Col sm={12} md={4} lg={2} key={`category--${index}`} className="mt-3">
                   <CategoryItem {...category} />
                 </Col>
               )
@@ -133,7 +133,7 @@ function HomePage(props) {
           <Row>
             {
               clients.map((client, index) => (
-                <Col xs={6} md={4} lg={3} key={`client--${index}`} className="mt-4 px-5">
+                <Col xs={12} md={6} lg={3} key={`client--${index}`} className="mt-4 px-5">
                   <ClientItem {...client} />
                 </Col>
               ))

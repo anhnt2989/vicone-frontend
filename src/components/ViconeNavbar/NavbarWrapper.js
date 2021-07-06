@@ -6,43 +6,59 @@ const NavbarWrapper = styled.div`
   position: sticky;
   top: 0;
   z-index: 99;
-  .navbar-collapse {
-    justify-content: flex-end;
-    position: relative;
-    padding-right: 10%;
-    margin-top: 2rem;
-    @media only screen and (max-width: 768px) {
-      padding-right: 0;
+  .navbar {
+    .navbar-toggler {
+      box-shadow: none;
+      outline: none;
+      margin: 1rem 1rem 0 1rem;
     }
-  }
-  .navbar-brand {
-    padding-left: 3rem;
-  }
-  .vicone-navitem {
-    transition: all 0.3s cubic-bezier(.17,.67,.83,.67);
-    text-align: center;
-    a {
-      text-transform: uppercase;
-      font-weight: bold;
-      font-size: 18px;
-      color: ${props => props.theme.navLinkColor} !important;
+    .navbar-collapse {
+      justify-content: flex-end;
+      position: relative;
+      padding-right: 10%;
+      margin-top: 2rem;
+      @media only screen and (max-width: 768px) {
+        padding-right: 0;
+      }
     }
-    &:after {
-      content: "";
-      display: block;
-      margin-top: 10px;
-      height: 5px;
-      background: ${props => props.theme.navLinkActivatedColor};
-      opacity: 0;
-      transition: all 0.2s cubic-bezier(.17,.67,.83,.67);
+    .navbar-brand {
+      padding-left: 3rem;
+      @media only screen and (max-width: 768px) {
+        display: none;
+      }
     }
-    &.activated {
+    .vicone-navitem {
+      transition: all 0.3s cubic-bezier(.17,.67,.83,.67);
+      text-align: center;
       a {
-        color: ${props => props.theme.navLinkActivatedColor} !important;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 18px;
+        color: ${props => props.theme.navLinkColor} !important;
       }
       &:after {
-        opacity: 1;
+        content: "";
+        display: block;
+        margin-top: 10px;
+        height: 5px;
+        background: ${props => props.theme.navLinkActivatedColor};
+        opacity: 0;
+        transition: all 0.2s cubic-bezier(.17,.67,.83,.67);
       }
+      &.activated {
+        a {
+          color: ${props => props.theme.navLinkActivatedColor} !important;
+        }
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+    @media only screen and (max-width: 768px) {
+      padding-top: 1.8rem;
+    }
+    @media only screen and (max-width: 618px) {
+      padding-top: 3rem;
     }
   }
 `;
@@ -81,6 +97,13 @@ export const NavbarInfo = styled.div`
       left: -60px;
       border-top: 60px solid ${props => props.theme.navLinkColor};
       border-left: 60px solid transparent;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    min-width: 100%;
+    max-width: 100%;
+    &:before {
+      display: none;
     }
   }
 `;
