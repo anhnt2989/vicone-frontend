@@ -3,7 +3,6 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   .img-block {
     border-radius: 25px;
-    background-color: ${props => props.theme.newsBg};
     width: 100%;
     height: 100%;
     max-height: 300px;

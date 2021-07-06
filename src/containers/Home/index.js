@@ -13,9 +13,11 @@ import ProductItem from 'components/ProductItem';
 import NewsItem from 'components/NewsItem';
 import ClientItem from 'components/ClientItem';
 import { slides, categories, products, clients } from 'constants/home-items';
+import Routes from 'constants/routes';
 import HomePageWrapper, { CarouselItemWrapper, LoadMoreButton } from './HomePageWrapper';
 
 function HomePage(props) {
+  const { history } = props;
   const [newsList, setNewsList] = useState([]);
 
   useEffect(() => {
@@ -105,7 +107,7 @@ function HomePage(props) {
               ))
             }
             <div className="text-center mt-5">
-              <LoadMoreButton color="primary">Xem thêm</LoadMoreButton>
+              <LoadMoreButton color="primary" onClick={() => history.push(Routes.NEWS)}>Xem thêm</LoadMoreButton>
             </div>
           </Row>
         </Container>
