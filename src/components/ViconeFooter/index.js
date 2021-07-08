@@ -17,6 +17,7 @@ import LocationIcon from 'assets/images/location.svg';
 import Wrapper from './Wrapper';
 
 function ViconeFooter(props) {
+  const { operations } = props;
   return (
     <Wrapper id="contact">
       <footer className="upper" style={{ background: `url(${FooterBg}) center center` }}>
@@ -25,25 +26,25 @@ function ViconeFooter(props) {
             <Col xs={4} className="mt-3">
               <div className="upper-footer__fragment">
                 <h5 className="title">
-                  Liên hệ với chúng tôi
+                  {operations?.contact?.text ?? 'Liên hệ với chúng tôi'}
                 </h5>
                 <div className="items">
                   <p>
-                    <a className="item" href="mailto:gddhvicone@gmail.com">
+                    <a className="item" href={`mailto:${operations?.contact?.email ?? 'gddhvicone@gmail.com'}`}>
                       <img className="img" src={MailIcon} alt="" />
-                      <span>gddhvicone@gmail.com</span>
+                      <span>{operations?.contact?.email ?? 'gddhvicone@gmail.com'}</span>
                     </a>
                   </p>
                   <p>
-                    <a className="item" href="tel:0916197889">
+                    <a className="item" href={`tel:${operations?.contact?.phone ?? '0916197889'}`}>
                       <img className="img" src={PhoneIcon} alt="" />
-                      <span>0916 197 889</span>
+                      <span>{operations?.contact?.phone ?? '0916 197 889'}</span>
                     </a>
                   </p>
                   <p>
                     <a className="item" href="/">
                       <img className="img" src={LocationIcon} alt="" />
-                      <span>số 10, khu dịch vụ 1,  Xa La, Hà Đông, Hà Nội</span>
+                      <span>{operations?.contact?.address ?? 'Số 10, khu dịch vụ 1, Xa La, Hà Đông, Hà Nội'}</span>
                     </a>
                   </p>
                   <p>
@@ -112,7 +113,7 @@ function ViconeFooter(props) {
                   </p>
                   <p>
                     <a className="item" href="/">
-                      <span>Chăm sóc sức khỏe & Làm đẹp</span>
+                      <span>Hệ thống Health & Beauty</span>
                     </a>
                   </p>
                 </div>

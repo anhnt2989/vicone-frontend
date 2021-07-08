@@ -18,36 +18,8 @@ import PhoneIcon from 'assets/images/call.svg';
 import LocationIcon from 'assets/images/location.svg';
 import NavbarWrapper, { NavbarInfo } from './NavbarWrapper';
 
-const navbarItems = [
-  {
-    id: 1,
-    label: 'Giới thiệu',
-    hash: '#info'
-  },
-  {
-    id: 2,
-    label: 'Sản phẩm',
-    hash: '#products'
-  },
-  {
-    id: 3,
-    label: 'Sự kiện',
-    hash: '#events'
-  },
-  {
-    id: 4,
-    label: 'Cafe Vicone',
-    hash: '#coffee'
-  },
-  {
-    id: 5,
-    label: 'Liên hệ',
-    hash: '#contact'
-  },
-];
-
 function ViconeNavbar(props) {
-  const { currentLocation } = props;
+  const { currentLocation, operations } = props;
   const [isOpen, setIsOpen] = useState(false);
   const [currentHash, setCurrentHash] = useState('');
 
@@ -64,6 +36,8 @@ function ViconeNavbar(props) {
 
   const toggle = () => setIsOpen(!isOpen);
 
+  console.log(operations)
+
   return (
     <NavbarWrapper>
       <Navbar expand="lg" light>
@@ -71,33 +45,33 @@ function ViconeNavbar(props) {
           <img className="img" src={LogoUrl} alt="Vicone Logo" />
         </NavbarBrand>
         <NavbarInfo>
-          <a className="navbar-info__info" href="mailto:gddhvicone@gmail.com">
+          <a className="navbar-info__info" href={`mailto:${operations?.contact?.email ?? 'gddhvicone@gmail.com'}`}>
             <img className="img" src={MailIcon} alt="" />
-            <span>gddhvicone@gmail.com</span>
+            <span>{operations?.contact?.email ?? 'gddhvicone@gmail.com'}</span>
           </a>
-          <a className="navbar-info__info" href="tel:0916197889">
+          <a className="navbar-info__info" href={`tel:${operations?.contact?.phone ?? '0916197889'}`}>
             <img className="img" src={PhoneIcon} alt="" />
-            <span>0916 197 889</span>
+            <span>{operations?.contact?.phone ?? '0916 197 889'}</span>
           </a>
           <a className="navbar-info__info" href="/">
             <img className="img" src={LocationIcon} alt="" />
-            <span>số 10, khu dịch vụ 1,  Xa La, Hà Đông, Hà Nội</span>
+            <span>{operations?.contact?.address ?? 'Số 10, khu dịch vụ 1, Xa La, Hà Đông, Hà Nội'}</span>
           </a>
         </NavbarInfo>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             {
-              navbarItems.map(navItem => {
+              operations && operations?.menu?.data?.map(navItem => {
                 return (
                   <NavItem
                     key={`nav-item--${navItem.id}`}
                     className={clsx(
                       "vicone-navitem",
-                      isEqual(currentHash, navItem.hash) && 'activated'
+                      isEqual(currentHash, navItem.hash || '#') && 'activated'
                     )}
                   >
-                    <NavLink href={navItem.hash}>{navItem.label}</NavLink>
+                    <NavLink href={navItem?.hash ?? '#'}>{navItem.name}</NavLink>
                   </NavItem>
                 )
               })

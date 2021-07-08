@@ -37,7 +37,7 @@ export const slides = [
 ];
 export const categories = [
   {
-    title: "Chuỗi cửa hàng Vicone Milk",
+    title: "Hệ thống cửa hàng Vicone Milk",
     backgroundUrl: Category1
   },
   {
@@ -49,7 +49,7 @@ export const categories = [
     backgroundUrl: Category3
   },
   {
-    title: "Chăm sóc sức khỏe & Làm đẹp",
+    title: "Hệ thống Health & Beauty",
     backgroundUrl: Category4
   },
   {

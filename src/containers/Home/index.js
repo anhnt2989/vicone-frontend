@@ -2,22 +2,26 @@ import React, { memo, useEffect, useState } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { Carousel } from "react-responsive-carousel";
 import axios from 'axios';
+import isEmpty from 'lodash/isEmpty';
+import { Link } from 'react-router-dom';
 
 import MapBg from 'assets/images/map.png';
 import ProductImg from 'assets/images/product-img.jpg';
 import CoffeeHeader from 'assets/images/coffee-header.jpg';
 import CoffeeBg from 'assets/images/coffee-bg.png';
+import NewIcon from 'assets/images/hot-icon.gif';
 
+import TextScroller from 'components/TextScroller';
 import CategoryItem from 'components/CategoryItem';
 import ProductItem from 'components/ProductItem';
 import NewsItem from 'components/NewsItem';
 import ClientItem from 'components/ClientItem';
-import { slides, categories, products, clients } from 'constants/home-items';
+import { slides, products, clients } from 'constants/home-items';
 import Routes from 'constants/routes';
 import HomePageWrapper, { CarouselItemWrapper, LoadMoreButton } from './HomePageWrapper';
 
 function HomePage(props) {
-  const { history } = props;
+  const { history, operations } = props;
   const [newsList, setNewsList] = useState([]);
 
   useEffect(() => {
@@ -28,11 +32,27 @@ function HomePage(props) {
     })
     .catch(err => {
       console.log(err);
-    })
+    });
   }, []);
 
   return (
     <HomePageWrapper>
+      <TextScroller
+        pauseOnHover
+        speed={50}
+      >
+        {newsList && !isEmpty(newsList) && newsList.map(news => {
+          const { id, title } = news;
+          return (
+            <div key={`news--${id}`} className="py-3 d-flex align-items-center">
+              <div style={{width: 30, height: 30}}>
+                <img className="img" src={NewIcon} alt="new icon" />
+              </div>
+              <Link style={{marginRight: '1rem'}} to="/">{title}</Link>
+            </div>
+          ) 
+        })}
+      </TextScroller>
       <Carousel autoPlay infiniteLoop showThumbs={false}>
         {
           slides.map((slide, index) =>
@@ -61,7 +81,7 @@ function HomePage(props) {
               </h1>
             </Col>
             {
-              categories.map((category, index) => 
+              operations && !isEmpty(operations) && operations?.ecosystem?.data?.map((category, index) => 
                 <Col sm={12} md={4} lg={2} key={`category--${index}`} className="mt-3">
                   <CategoryItem {...category} />
                 </Col>
@@ -118,7 +138,7 @@ function HomePage(props) {
           <div className="layer" />
           <div className="slogan">
             <h1 className="title">
-              VINCONE GROUP 
+              VICONE GROUP 
               <br />
               VÌ SỰ THÀNH CÔNG CỦA BẠN
             </h1>
