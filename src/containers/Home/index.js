@@ -3,15 +3,11 @@ import { Container, Row, Col } from 'reactstrap';
 import { Carousel } from "react-responsive-carousel";
 import axios from 'axios';
 import isEmpty from 'lodash/isEmpty';
-import { Link } from 'react-router-dom';
 
 import MapBg from 'assets/images/map.png';
 import ProductImg from 'assets/images/product-img.jpg';
 import CoffeeHeader from 'assets/images/coffee-header.jpg';
 import CoffeeBg from 'assets/images/coffee-bg.png';
-import NewIcon from 'assets/images/hot-icon.gif';
-
-import TextScroller from 'components/TextScroller';
 import CategoryItem from 'components/CategoryItem';
 import ProductItem from 'components/ProductItem';
 import NewsItem from 'components/NewsItem';
@@ -37,22 +33,6 @@ function HomePage(props) {
 
   return (
     <HomePageWrapper>
-      <TextScroller
-        pauseOnHover
-        speed={50}
-      >
-        {newsList && !isEmpty(newsList) && newsList.map(news => {
-          const { id, title } = news;
-          return (
-            <div key={`news--${id}`} className="py-3 d-flex align-items-center">
-              <div style={{width: 30, height: 30}}>
-                <img className="img" src={NewIcon} alt="new icon" />
-              </div>
-              <Link style={{marginRight: '1rem'}} to="/">{title}</Link>
-            </div>
-          ) 
-        })}
-      </TextScroller>
       <Carousel autoPlay infiniteLoop showThumbs={false}>
         {
           slides.map((slide, index) =>

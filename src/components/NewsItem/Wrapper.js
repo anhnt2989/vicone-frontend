@@ -23,7 +23,7 @@ const Wrapper = styled.div`
       }
     }
     .title {
-      color: ${props => props.theme.mainBlack};
+      color: ${props => props.theme.navLinkColor};
       font-size: 18px;
       line-height: 32px;
       text-transform: capitalize;
@@ -32,10 +32,14 @@ const Wrapper = styled.div`
       -webkit-box-orient: vertical;
       overflow: hidden;
       text-overflow: ellipsis;
+      cursor: pointer;
       &.stuck {
         font-weight: bold;
         font-size: 24px;
         line-height: 42px;
+      }
+      &:hover {
+        text-decoration: underline;
       }
     }
     .text {

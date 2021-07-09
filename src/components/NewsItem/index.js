@@ -4,12 +4,15 @@ import clsx from 'clsx';
 // import parse from 'html-react-parser';
 import dayjs from 'dayjs';
 import LinesEllipsis from 'react-lines-ellipsis';
+import { useHistory } from 'react-router';
 
 import appConfig from 'constants/appConfig';
+import Routes from 'constants/routes';
 import Wrapper from './Wrapper';
 
 function NewsItem(props) {
-  const { logo, slug, created_at, title, summary, isStuck } = props;
+  const history = useHistory();
+  const { logo, slug, created_at, updated_at, title, summary, isStuck, content } = props;
   return (
     <Wrapper>
       <Row>
@@ -21,7 +24,7 @@ function NewsItem(props) {
         <Col xs={12} md={6}>
           <div className="text-block">
             <p className={clsx("date", isStuck && "stuck")}>{created_at && dayjs(created_at).format('DD/MM/YYYY')}</p>
-            <h5 className={clsx("title", isStuck && "stuck")}>{title && title}</h5>
+            <h5 className={clsx("title", isStuck && "stuck")} onClick={() => history.push({ pathname: `${Routes.NEWS}/${slug}`, state: {current: {logo, created_at, updated_at, title, content, slug}}  })}>{title && title}</h5>
             {isStuck && 
               <div className={clsx("text", isStuck && "stuck")}>
                 { summary && 

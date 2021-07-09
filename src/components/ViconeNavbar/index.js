@@ -11,15 +11,21 @@ import {
 import clsx from 'clsx';
 import isEqual from 'lodash/isEqual';
 import isEmpty from 'lodash/isEmpty';
+import { useHistory } from 'react-router';
 
 import LogoUrl from 'assets/images/logo.png';
 import MailIcon from 'assets/images/message.svg';
 import PhoneIcon from 'assets/images/call.svg';
 import LocationIcon from 'assets/images/location.svg';
+import NewIcon from 'assets/images/hot-icon.gif';
+import Routes from 'constants/routes';
+
+import TextScroller from 'components/TextScroller';
 import NavbarWrapper, { NavbarInfo } from './NavbarWrapper';
 
 function ViconeNavbar(props) {
-  const { currentLocation, operations } = props;
+  const { currentLocation, operations, newsList } = props;
+  const history = useHistory();
   const [isOpen, setIsOpen] = useState(false);
   const [currentHash, setCurrentHash] = useState('');
 
@@ -35,8 +41,6 @@ function ViconeNavbar(props) {
   }, [currentLocation]);
 
   const toggle = () => setIsOpen(!isOpen);
-
-  console.log(operations)
 
   return (
     <NavbarWrapper>
@@ -79,6 +83,22 @@ function ViconeNavbar(props) {
           </Nav>
         </Collapse>
       </Navbar>
+      <TextScroller
+        pauseOnHover
+        speed={50}
+      >
+        {newsList && !isEmpty(newsList) && newsList.map(news => {
+          const { id, title, slug, logo, created_at, updated_at, content } = news;
+          return (
+            <div key={`news--${id}`} className="d-flex align-items-center">
+              <div style={{width: 30, height: 30}}>
+                <img className="img" src={NewIcon} alt="new icon" />
+              </div>
+              <span className="auto-scroll-text__link" style={{marginRight: '1rem'}} onClick={() => history.push({ pathname: `${Routes.NEWS}/${slug}`, state: { current: { logo, created_at, updated_at, title, content, slug } } })}>{title}</span>
+            </div>
+          ) 
+        })}
+      </TextScroller>
     </NavbarWrapper>
   )
 };

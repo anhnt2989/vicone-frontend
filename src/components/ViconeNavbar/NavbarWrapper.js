@@ -6,6 +6,14 @@ const NavbarWrapper = styled.div`
   position: sticky;
   top: 0;
   z-index: 99;
+  position: relative;
+  .auto-scroll-text__link {
+    color: ${props => props.theme.navLinkColor};
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
   .navbar {
     .navbar-toggler {
       box-shadow: none;
@@ -54,6 +62,7 @@ const NavbarWrapper = styled.div`
         }
       }
     }
+    
     @media only screen and (max-width: 768px) {
       padding-top: 1.8rem;
     }
