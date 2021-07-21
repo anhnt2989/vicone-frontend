@@ -36,8 +36,6 @@ function ViconeNavbar(props) {
 
   const toggle = () => setIsOpen(!isOpen);
 
-  console.log(operations)
-
   return (
     <NavbarWrapper>
       <Navbar expand="lg" light>
@@ -71,7 +69,7 @@ function ViconeNavbar(props) {
                       isEqual(currentHash, navItem.hash || '#') && 'activated'
                     )}
                   >
-                    <NavLink href={navItem?.hash ?? '#'}>{navItem.name}</NavLink>
+                    <NavLink href={`#${navItem?.id }`?? '#'}>{navItem.name}</NavLink>
                   </NavItem>
                 )
               })
