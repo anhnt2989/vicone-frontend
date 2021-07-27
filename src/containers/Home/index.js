@@ -57,7 +57,7 @@ function HomePage(props) {
           <Row className="p-5 justify-content-center">
             <Col xs={12}>
               <h1 className="block-title">
-                HỆ SINH THÁI ONE GROUP
+                HỆ SINH THÁI VICONE
               </h1>
             </Col>
             {

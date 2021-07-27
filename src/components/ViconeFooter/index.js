@@ -88,7 +88,7 @@ function ViconeFooter(props) {
             <Col xs={4} className="mt-3">
               <div className="upper-footer__fragment">
                 <h5 className="title">
-                  Hệ sinh thái One Group
+                  Hệ sinh thái Vicone
                 </h5>
                 <div className="items">
                   <p>
