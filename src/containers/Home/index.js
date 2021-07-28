@@ -52,7 +52,7 @@ function HomePage(props) {
           )
         }
       </Carousel>
-      <section id="info">
+      <section id="menu_1">
         <Container>
           <Row className="p-5 justify-content-center">
             <Col xs={12}>
@@ -70,7 +70,7 @@ function HomePage(props) {
           </Row>
         </Container>
       </section>
-      <section className="products-section" id="products">
+      <section className="products-section" id="menu_2">
         <Container style={{ background: `url(${MapBg}) center center no-repeat` }}>
           <Row>
             <Col xs={12}>
@@ -91,7 +91,7 @@ function HomePage(props) {
           </Row>
         </Container>
       </section>
-      <section id="events" className="events-section">
+      <section id="menu_3" className="events-section">
         <Container>
           <Row>
             <Col xs={12}>
@@ -112,7 +112,7 @@ function HomePage(props) {
           </Row>
         </Container>
       </section>
-      <section id="coffee" className="coffee-section" style={{background: `url(${CoffeeBg}) center center no-repeat`}}>
+      <section id="menu_4" className="coffee-section" style={{background: `url(${CoffeeBg}) center center no-repeat`}}>
         <div className="section-header">
           <img className="img" src={CoffeeHeader} alt="" />
           <div className="layer" />
