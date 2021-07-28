@@ -75,7 +75,7 @@ function ViconeNavbar(props) {
                       isEqual(currentHash, navItem.hash || '#') && 'activated'
                     )}
                   >
-                    <NavLink href={navItem?.hash ?? '#'}>{navItem.name}</NavLink>
+                    <NavLink href={`#${navItem?.id }`?? '#'}>{navItem.name}</NavLink>
                   </NavItem>
                 )
               })
