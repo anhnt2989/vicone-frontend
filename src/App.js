@@ -24,7 +24,7 @@ function App() {
   const [newsList, setNewsList] = useState([]);
 
   useEffect(() => {
-    axios.get('http://api.vicone.vn/api/settings')
+    axios.get('https://api.vicone.vn/api/settings')
     .then(data => {
       const settings = data?.data ?? {};
       setOperations(settings);
@@ -32,7 +32,7 @@ function App() {
     .catch(err => {
       console.log(err);
     });
-    axios.get('http://api.vicone.vn/api/news?limit=5&page=1')
+    axios.get('https://api.vicone.vn/api/news?limit=5&page=1')
     .then(data => {
       const news = data?.data?.data ?? [];
       setNewsList(news);

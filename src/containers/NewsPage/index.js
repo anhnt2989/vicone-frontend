@@ -18,7 +18,7 @@ function NewsPage(props) {
   const [newsList, setNewsList] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://api.vicone.vn/api/news?limit=${5}&page=${currentPage}`)
+    axios.get(`https://api.vicone.vn/api/news?limit=${5}&page=${currentPage}`)
     .then(data => {
       const list = data?.data?.data ?? [];
       const current = data?.data?.current_page ?? 1;
