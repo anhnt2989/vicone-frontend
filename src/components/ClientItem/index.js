@@ -1,20 +1,20 @@
-import React, { memo } from 'react';
-
-import Wrapper from './Wrapper';
+import React, { memo } from "react";
+import "./index.css";
+import Wrapper from "./Wrapper";
 
 function ClientItem(props) {
-  const { imgUrl, fullName, summary } = props;
+  const { img, name, message } = props;
   return (
     <Wrapper>
       <div className="img-block">
-        <img className="img" src={imgUrl} alt="" />
+        <img className="img widthImg" src={img} alt="" />
       </div>
       <div className="info-block">
-        <h5 className="full-name">{fullName && fullName}</h5>
-        <p className="summary">{summary && summary}</p>
+        <h5 className="full-name">{name && name}</h5>
+        <p className="summary">{message && message}</p>
       </div>
     </Wrapper>
   );
-};
+}
 
 export default memo(ClientItem);

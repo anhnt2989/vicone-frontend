@@ -1,6 +1,6 @@
-import React, { memo } from 'react';
-import { Row, Col } from 'reactstrap';
-import Wrapper from './Wrapper';
+import React, { memo } from "react";
+import { Row, Col } from "reactstrap";
+import Wrapper from "./Wrapper";
 
 function ProductItem(props) {
   const { icon, title, text } = props;
@@ -9,7 +9,7 @@ function ProductItem(props) {
       <Row>
         <Col xs={3}>
           <div className="product__img-block">
-            <img className="img" src={icon || ''} alt="" />
+            <img className="img" src={icon || ""} alt="" />
           </div>
         </Col>
         <Col xs={9}>
@@ -21,6 +21,6 @@ function ProductItem(props) {
       </Row>
     </Wrapper>
   );
-};
+}
 
 export default memo(ProductItem);
