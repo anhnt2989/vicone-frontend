@@ -1,14 +1,14 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const NavbarWrapper = styled.div`
   box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25);
-  background-color: ${props => props.theme.navbarBg};
+  background-color: ${(props) => props.theme.navbarBg};
   position: sticky;
   top: 0;
   z-index: 99;
   position: relative;
   .auto-scroll-text__link {
-    color: ${props => props.theme.navLinkColor};
+    color: ${(props) => props.theme.navLinkColor};
     cursor: pointer;
     &:hover {
       text-decoration: underline;
@@ -36,33 +36,33 @@ const NavbarWrapper = styled.div`
       }
     }
     .vicone-navitem {
-      transition: all 0.3s cubic-bezier(.17,.67,.83,.67);
+      transition: all 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
       text-align: center;
       a {
         text-transform: uppercase;
         font-weight: bold;
         font-size: 18px;
-        color: ${props => props.theme.navLinkColor} !important;
+        color: ${(props) => props.theme.navLinkColor} !important;
       }
       &:after {
         content: "";
         display: block;
         margin-top: 10px;
         height: 5px;
-        background: ${props => props.theme.navLinkActivatedColor};
+        background: ${(props) => props.theme.navLinkActivatedColor};
         opacity: 0;
-        transition: all 0.2s cubic-bezier(.17,.67,.83,.67);
+        transition: all 0.2s cubic-bezier(0.17, 0.67, 0.83, 0.67);
       }
       &.activated {
         a {
-          color: ${props => props.theme.navLinkActivatedColor} !important;
+          color: ${(props) => props.theme.navLinkActivatedColor} !important;
         }
         &:after {
           opacity: 1;
         }
       }
     }
-    
+
     @media only screen and (max-width: 768px) {
       padding-top: 1.8rem;
     }
@@ -73,7 +73,7 @@ const NavbarWrapper = styled.div`
 `;
 
 export const NavbarInfo = styled.div`
-  background-color: ${props => props.theme.navLinkColor};
+  background-color: ${(props) => props.theme.navLinkColor};
   position: absolute;
   right: 0;
   top: 0;
@@ -84,7 +84,7 @@ export const NavbarInfo = styled.div`
   .navbar-info__info {
     font-size: 12px;
     margin-right: 30px;
-    color: ${props => props.theme.mainWhite};
+    color: ${(props) => props.theme.mainWhite};
     text-decoration: none;
     &:hover {
       text-decoration: underline;
@@ -100,11 +100,11 @@ export const NavbarInfo = styled.div`
     left: -36px;
     width: 0;
     height: 0;
-    border-top: 36px solid ${props => props.theme.navLinkColor};
+    border-top: 36px solid ${(props) => props.theme.navLinkColor};
     border-left: 36px solid transparent;
     @media only screen and (max-width: 645px) {
       left: -60px;
-      border-top: 60px solid ${props => props.theme.navLinkColor};
+      border-top: 60px solid ${(props) => props.theme.navLinkColor};
       border-left: 60px solid transparent;
     }
   }

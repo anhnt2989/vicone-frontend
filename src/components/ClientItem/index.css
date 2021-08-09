@@ -1,0 +1,7 @@
+p {
+  display: block;
+  text-overflow: ellipsis;
+  width: auto;
+  overflow: hidden;
+  max-height: 130px;
+}
