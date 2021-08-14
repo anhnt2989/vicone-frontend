@@ -35,9 +35,8 @@ function ViconeFooter(props) {
                   <p>
                     <a
                       className="item"
-                      href={`mailto:${
-                        operations?.contact?.email ?? "gddhvicone@gmail.com"
-                      }`}
+                      href={`mailto:${operations?.contact?.email ?? "gddhvicone@gmail.com"
+                        }`}
                     >
                       <img className="img" src={MailIcon} alt="" />
                       <span>

@@ -18,13 +18,13 @@ import HomePageWrapper, {
   CarouselItemWrapper,
   LoadMoreButton,
 } from "./HomePageWrapper";
-
 function HomePage(props) {
   const { history, operations } = props;
   const [newsList, setNewsList] = useState([]);
   const [listPhanHoi, setListPhanHoi] = useState([]);
   const [detailReason, setDetailReason] = useState("");
   const [detailData, setDetailData] = useState([]);
+  const [imgSlide, setImgSlide] = useState([]);
   useEffect(() => {
     axios
       .get("https://api.vicone.vn/api/news?limit=5&page=1")
@@ -39,29 +39,39 @@ function HomePage(props) {
 
   useEffect(() => {
     axios.get(`https://api.vicone.vn/api/settings`).then((res) => {
-      console.log(res);
       setListPhanHoi(res?.data?.customer?.data);
       setDetailReason(res?.data?.reason);
       setDetailData(res?.data?.reason?.data);
     });
   }, []);
+  useEffect(() => {
+    axios.get(`https://api.vicone.vn/api/slide`).then(data => {
+      console.log(data);
+      setImgSlide(data?.data)
+    })
+  }, [])
 
   return (
     <HomePageWrapper>
       <Carousel autoPlay infiniteLoop showThumbs={false}>
-        {slides.map((slide, index) => (
+        {imgSlide.map((img, index) => (
           <CarouselItemWrapper key={`slide--${index}`}>
             <div className="layer" />
-            <img className="img" alt="" src={slide.background} />
-            <div className="slide-info">
-              <div className="logo-block">
-                <img className="img" src={slide.logo} alt="" />
-              </div>
-              <div className="text-block">
-                <h3 className="title-text text-uppercase">{slide.titleText}</h3>
-                <h1 className="brand-text text-uppercase">{slide.text}</h1>
-              </div>
-            </div>
+            <img className="img" alt="" src={img.img} />
+            {
+              slides.map((slide, index) =>
+                <div key={index} className="slide-info">
+                  <div className="logo-block">
+                    <img className="img" src={slide.logo} alt="" />
+                  </div>
+                  <div className="text-block">
+                    <h3 className="title-text text-uppercase">{slide.titleText}</h3>
+                    <h1 className="brand-text text-uppercase">{slide.text}</h1>
+                  </div>
+                </div>
+              )
+            }
+
           </CarouselItemWrapper>
         ))}
       </Carousel>
