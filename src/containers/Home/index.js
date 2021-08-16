@@ -62,7 +62,7 @@ function HomePage(props) {
               slides.map((slide, index) =>
                 <div key={index} className="slide-info">
                   <div className="logo-block">
-                    <img className="img" src={slide.logo} alt="" />
+                    {/* <img className="img" src={slide.logo} alt="" /> */}
                   </div>
                   <div className="text-block">
                     <h3 className="title-text text-uppercase">{slide.titleText}</h3>
